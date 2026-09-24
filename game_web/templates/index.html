@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Las Vegas LAN Poker</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+</head>
+<body>
+    <div id="login-screen" class="screen glass active">
+        <h1>♠️ LAN / SOLO POKER ♥️</h1>
+        <p>Choose your mode</p>
+        <input type="text" id="username" placeholder="Enter your name" maxlength="12">
+        <div style="display: flex; gap: 10px; width: 100%;">
+            <button id="join-solo-btn" class="btn secondary" style="flex:1">Play Solo (vs 4 Bots)</button>
+            <button id="join-lan-btn" class="btn primary" style="flex:1">Play LAN (Multiplayer)</button>
+        </div>
+    </div>
+
+    <div id="game-screen" class="screen">
+        <div class="table-area">
+            <div class="pot-area glass">
+                <h3>POT</h3>
+                <div id="pot-amount">$0</div>
+                <div id="phase-badge">WAITING</div>
+            </div>
+            <div id="community-cards" class="cards-container">
+                <!-- Cards injected here -->
+            </div>
+        </div>
+
+        <div id="players-list" class="players-container">
+            <!-- Other players injected here -->
+        </div>
+
+        <div class="my-area glass">
+            <div class="my-info">
+                <span id="my-name">You</span>
+                <span id="my-money">$0</span>
+            </div>
+            <div id="my-cards" class="cards-container">
+                <!-- My cards injected here -->
+            </div>
+            
+            <div id="action-controls" class="controls hidden">
+                <div class="status-msg">Your Turn! (To call: $<span id="to-call-amt">0</span>)</div>
+                <div class="btn-group">
+                    <button id="btn-fold" class="btn danger">Fold</button>
+                    <button id="btn-check" class="btn secondary">Check</button>
+                    <button id="btn-call" class="btn primary">Call</button>
+                </div>
+                <div class="raise-group">
+                    <input type="number" id="raise-input" placeholder="Raise amt" step="50">
+                    <button id="btn-raise" class="btn accent">Raise</button>
+                    <button id="btn-allin" class="btn danger glow">ALL IN</button>
+                </div>
+            </div>
+            
+            <div id="game-controls">
+                <button id="btn-start" class="btn accent hidden">Start New Hand</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/app.js"></script>
+</body>
+</html>
