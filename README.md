@@ -1,1 +1,1 @@
-# game-
+cuma game ngilangin bosen 
